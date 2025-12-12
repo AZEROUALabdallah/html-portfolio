@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapissier Anezi - Créations sur mesure en tissu d'exception</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-pattern {
+            background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        .fabric-texture {
+            background-image: url('https://images.unsplash.com/photo-1520013333831-acd77cc09021?ixlib=rb-4.0.3');
+            background-size: cover;
+        }
+        
+        .custom-shape {
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        }
+        
+        @media (max-width: 768px) {
+            .custom-shape {
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+        }
+        
+        .transition-slow {
+            transition: all 0.5s ease;
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-couch text-amber-700 text-3xl mr-2"></i>
+                <h1 class="text-2xl font-bold text-gray-800">Tapissier <span class="text-amber-700">Anezi</span></h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#accueil" class="text-gray-800 hover:text-amber-700 font-medium transition-slow">Accueil</a>
+                <a href="#services" class="text-gray-800 hover:text-amber-700 font-medium transition-slow">Services</a>
+                <a href="#produits" class="text-gray-800 hover:text-amber-700 font-medium transition-slow">Produits</a>
+                <a href="#galerie" class="text-gray-800 hover:text-amber-700 font-medium transition-slow">Galerie</a>
+                <a href="#contact" class="text-gray-800 hover:text-amber-700 font-medium transition-slow">Contact</a>
+            </nav>
+            
+            <button class="md:hidden text-gray-800" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white w-full py-4 px-4 shadow-inner" id="mobile-menu">
+            <div class="flex flex-col space-y-4">
+                <a href="#accueil" class="text-gray-800 hover:text-amber-700 font-medium">Accueil</a>
+                <a href="#services" class="text-gray-800 hover:text-amber-700 font-medium">Services</a>
+                <a href="#produits" class="text-gray-800 hover:text-amber-700 font-medium">Produits</a>
+                <a href="#galerie" class="text-gray-800 hover:text-amber-700 font-medium">Galerie</a>
+                <a href="#contact" class="text-gray-800 hover:text-amber-700 font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-pattern bg-amber-700 bg-opacity-90 text-white custom-shape pb-20 md:pb-32">
+        <div class="container mx-auto px-4 py-20 md:py-32">
+            <div class="max-w-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">L'art du tissu sur mesure</h2>
+                <p class="text-xl mb-8">Depuis 15 ans, Tapissier Anezi transforme vos intérieurs avec des créations uniques et des finitions d'exception.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="bg-white text-amber-700 hover:bg-gray-100 px-6 py-3 rounded-full font-bold transition-slow">Demander un devis</a>
+                    <a href="#galerie" class="border-2 border-white hover:bg-white hover:text-amber-700 px-6 py-3 rounded-full font-bold transition-slow">Voir nos réalisations</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Services d'Exception</h2>
+                <div class="w-20 h-1 bg-amber-700 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition-slow">
+                    <div class="text-amber-700 text-4xl mb-4">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Rénovation de sièges</h3>
+                    <p class="text-gray-600">Redonnez une seconde vie à vos fauteuils et canapés avec nos techniques artisanales de restauration.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition-slow">
+                    <div class="text-amber-700 text-4xl mb-4">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Création sur mesure</h3>
+                    <p class="text-gray-600">Des pièces uniques conçues spécialement pour votre intérieur, selon vos goûts et vos mesures.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl transition-slow">
+                    <div class="text-amber-700 text-4xl mb-4">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Choix de tissus premium</h3>
+                    <p class="text-gray-600">Une sélection exclusive des meilleurs tissus français et internationaux pour des résultats haut de gamme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits Section -->
+    <section id="produits" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Produits Phares</h2>
+                <div class="w-20 h-1 bg-amber-700 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Produit 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-slow">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555041463-e8f50c5a1b59?ixlib=rb-4.0.3" alt="Canapé en velours" class="w-full h-full object-cover">
+                        <div class="product-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-slow">
+                            <a href="#contact" class="bg-white text-amber-700 px-6 py-2 rounded-full font-bold">Commander</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Canapé "Lyon"</h3>
+                        <p class="text-gray-600 mb-4">Canapé 3 places en velours côtelé, structure en hêtre massif.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-700">À partir de 1 890€</span>
+                            <button class="text-gray-400 hover:text-amber-700">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-slow">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583845112208-9b780705d1f4?ixlib=rb-4.0.3" alt="Fauteuil club" class="w-full h-full object-cover">
+                        <div class="product-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-slow">
+                            <a href="#contact" class="bg-white text-amber-700 px-6 py-2 rounded-full font-bold">Commander</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Fauteuil "Club Anezi"</h3>
+                        <p class="text-gray-600 mb-4">Fauteuil club en cuir pleine fleur, rembourrage en plumes.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-700">À partir de 2 450€</span>
+                            <button class="text-gray-400 hover:text-amber-700">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-slow">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3" alt="Chaise design" class="w-full h-full object-cover">
+                        <div class="product-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-slow">
+                            <a href="#contact" class="bg-white text-amber-700 px-6 py-2 rounded-full font-bold">Commander</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Chaise "Bastille"</h3>
+                        <p class="text-gray-600 mb-4">Chaise design en tissu technique résistant, structure en métal.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-amber-700">À partir de 490€</span>
+                            <button class="text-gray-400 hover:text-amber-700">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#produits" class="inline-block border-2 border-amber-700 text-amber-700 hover:bg-amber-700 hover:text-white px-6 py-3 rounded-full font-bold transition-slow">Voir tous nos produits</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie Section -->
+    <section id="galerie" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Notre Galerie</h2>
+                <div class="w-20 h-1 bg-amber-700 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="relative group overflow-hidden rounded-lg h-64">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3" alt="Réalisation 1" class="w-full h-full object-cover group-hover:scale-105 transition-slow">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-slow">
+                        <span class="text-white font-bold text-lg">Salon contemporain</span>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg h-64">
+                    <img src="https://images.unsplash.com/photo-1555041463-e8f50c5a1b59?ixlib=rb-4.0.3" alt="Réalisation 2" class="w-full h-full object-cover group-hover:scale-105 transition-slow">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-slow">
+                        <span class="text-white font-bold text-lg">Canapé sur mesure</span>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg h-64">
+                    <img src="https://images.unsplash.com/photo-1583845112208-9b780705d1f4?ixlib=rb-4.0.3" alt="Réalisation 3" class="w-full h-full object-cover group-hover:scale-105 transition-slow">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-slow">
+                        <span class="text-white font-bold text-lg">Fauteuil restauré</span>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg h-64">
+                    <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3" alt="Réalisation 4" class="w-full h-full object-cover group-hover:scale-105 transition-slow">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-slow">
+                        <span class="text-white font-bold text-lg">Chaises design</span>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg h-64">
+                    <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3" alt="Réalisation 5" class="w-full h-full object-cover group-hover:scale-105 transition-slow">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-slow">
+                        <span class="text-white font-bold text-lg">Tête de lit sur mesure</span>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-lg h-64">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3" alt="Réalisation 6" class="w-full h-full object-cover group-hover:scale-105 transition-slow">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-slow">
+                        <span class="text-white font-bold text-lg">Banquette d'angle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="py-16 fabric-texture bg-opacity-90 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Ce que disent nos clients</h2>
+                <div class="w-20 h-1 bg-amber-700 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-lg">
+                    <div class="flex mb-4 text-amber-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic mb-6">"Le fauteuil de mon grand-père a retrouvé sa splendeur d'antan. Un travail d'une qualité exceptionnelle."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-600 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client 1" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sophie Martin</h4>
+                            <p class="text-gray-400 text-sm">Paris</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-lg">
+                    <div class="flex mb-4 text-amber-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic mb-6">"Notre canapé sur mesure est exactement comme nous l'imaginions. Le choix des tissus était parfait."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-600 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 2" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Thomas Lefèvre</h4>
+                            <p class="text-gray-400 text-sm">Lyon</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-lg">
+                    <div class="flex mb-4 text-amber-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="italic mb-6">"Service impeccable et délais respectés malgré la complexité de notre projet. Je recommande vivement."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-600 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 3" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Élodie Dubois</h4>
+                            <p class="text-gray-400 text-sm">Bordeaux</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contactez-nous</h2>
+                    <div class="w-20 h-1 bg-amber-700 mx-auto"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Prenez rendez-vous</h3>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Nom complet</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-gray-700 mb-2">Téléphone</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2">Votre projet</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="bg-amber-700 hover:bg-amber-800 text-white px-6 py-3 rounded-full font-bold transition-slow">Envoyer la demande</button>
+                        </form>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Nos coordonnées</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-amber-700 text-xl mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Atelier Tapissier Anezi</h4>
+                                    <p class="text-gray-600">24 Rue de l'Artisanat<br>75015 Paris, France</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-amber-700 text-xl mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Téléphone</h4>
+                                    <p class="text-gray-600">01 45 78 92 34</p>
+                                    <p class="text-gray-600">06 12 34 56 78</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-amber-700 text-xl mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">contact@tapissieranezi.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-amber-700 text-xl mr-4 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Horaires</h4>
+                                    <p class="text-gray-600">Lundi - Vendredi: 9h - 18h</p>
+                                    <p class="text-gray-600">Samedi: 10h - 16h (sur rendez-vous)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-gray-800 mb-4">Suivez-nous</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-200 hover:bg-amber-700 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-slow">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 hover:bg-amber-700 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-slow">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 hover:bg-amber-700 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-slow">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 bg-amber-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Prêt à transformer votre intérieur ?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Contactez-nous dès aujourd'hui pour un devis personnalisé et sans engagement.</p>
+            <a href="#contact" class="bg-white text-amber-700 hover:bg-gray-100 px-8 py-3 rounded-full font-bold text-lg transition-slow">Prendre rendez-vous</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-couch text-amber-700 text-2xl mr-2"></i>
+                        <h3 class="text-xl font-bold">Tapissier Anezi</h3>
+                    </div>
+                    <p class="text-gray-400">L'excellence artisanale au service de votre intérieur depuis 2008.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-amber-400 transition-slow">Accueil</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-amber-400 transition-slow">Services</a></li>
+                        <li><a href="#produits" class="text-gray-400 hover:text-amber-400 transition-slow">Produits</a></li>
+                        <li><a href="#galerie" class="text-gray-400 hover:text-amber-400 transition-slow">Galerie</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-amber-400 transition-slow">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-slow">Rénovation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-slow">Création sur mesure</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-slow">Conseil en décoration</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-slow">Restauration de pièces anciennes</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Abonnez-vous pour recevoir nos dernières créations et offres spéciales.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-lg w-full text-gray-800 focus:outline-none">
+                        <button type="submit" class="bg-amber-700 hover:bg-amber-600 px-4 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Tapissier Anezi. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-amber-400 transition-slow text-sm">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400 transition-slow text-sm">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400 transition-slow text-sm">CGV</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous contacterons rapidement.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
